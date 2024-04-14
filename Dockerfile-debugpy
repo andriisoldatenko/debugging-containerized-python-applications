@@ -1,6 +1,6 @@
 FROM python:3.12-slim-bookworm
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN pip install --no-cache-dir -r debugger.txt
+RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5678 8000
 CMD ["python", "-m", "debugpy", "--wait-for-client", "--listen", "0.0.0.0:5678", "-m", "uvicorn", "main:app", "--port", "8000", "--host", "0.0.0.0"]

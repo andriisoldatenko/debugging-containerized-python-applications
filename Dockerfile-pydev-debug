@@ -1,0 +1,7 @@
+FROM python:3.12-slim-bookworm
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install pydevd-pycharm~=191.3490
+EXPOSE 5678 8000
+CMD ["python", "main_2.py", "--port", "8000", "--host", "0.0.0.0"]

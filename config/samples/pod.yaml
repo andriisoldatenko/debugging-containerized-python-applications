@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-app
+  namespace: demo
+spec:
+  containers:
+    - name: sample-debug
+      image: asoldatenko/my-python-app:new-tag
+      command: [ "/bin/sh", "-c", "--" ]
+      args: [ "while true; do sleep 300; done;" ]

@@ -1,0 +1,31 @@
+INFO:     127.0.0.1:51061 - "GET /openapi.json HTTP/1.1" 200 OK
+> /Users/andrii/work/debugging-containerized-python-applications/main.py(27)get_model()
+-> if model_name is ModelName.alexnet:
+(Pdb) l
+ 22
+ 23
+ 24     @app.get("/models/{model_name}")
+ 25     async def get_model(model_name: ModelName):
+ 26         import pdb; pdb.set_trace()
+ 27  ->     if model_name is ModelName.alexnet:
+ 28             return {"model_name": model_name, "message": "Deep Learning FTW!"}
+ 29
+ 30         if model_name.value == "lenet":
+ 31             return {"model_name": model_name, "message": "LeCNN all the images"}
+ 32
+(Pdb) n
+> /Users/andrii/work/debugging-containerized-python-applications/main.py(28)get_model()
+-> return {"model_name": model_name, "message": "Deep Learning FTW!"}
+(Pdb) l
+ 23
+ 24     @app.get("/models/{model_name}")
+ 25     async def get_model(model_name: ModelName):
+ 26         import pdb; pdb.set_trace()
+ 27         if model_name is ModelName.alexnet:
+ 28  ->         return {"model_name": model_name, "message": "Deep Learning FTW!"}
+ 29
+ 30         if model_name.value == "lenet":
+ 31             return {"model_name": model_name, "message": "LeCNN all the images"}
+ 32
+ 33         return {"model_name": model_name, "message": "Have some residuals"}
+(Pdb)
