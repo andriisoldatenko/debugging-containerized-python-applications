@@ -13,3 +13,5 @@ uvicorn==0.29.0
 # debuggers
 debugpy==1.8.1
 pudb
+ipdb
+pdb-clone

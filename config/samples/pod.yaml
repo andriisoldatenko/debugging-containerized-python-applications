@@ -6,6 +6,7 @@ metadata:
 spec:
   containers:
     - name: sample-debug
-      image: asoldatenko/my-python-app:new-tag
-      command: [ "/bin/sh", "-c", "--" ]
-      args: [ "while true; do sleep 300; done;" ]
+      image: asoldatenko/py-sample-app-debug
+      env:
+        - name: REMOTE_DEBUG_PORT
+          value: "5678"

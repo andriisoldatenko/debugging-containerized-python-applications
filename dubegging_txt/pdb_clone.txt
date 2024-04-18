@@ -1,0 +1,24 @@
+$ telnet localhost 7935
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+PROCESS_PID:43030
+PROCESS_NAME:samples/pdb_clone_example.py
+> /users/andrii.soldatenko/work/debugging-containerized-python-applications/samples/pdb_clone_example.py(4)main()
+-> a = 2
+(Pdb) n
+> /users/andrii.soldatenko/work/debugging-containerized-python-applications/samples/pdb_clone_example.py(5)main()
+-> b = 3
+(Pdb) l
+  1     def main():
+  2         import pdb_clone.pdb as pdb
+  3         pdb.set_trace_remote(host=b'127.0.0.1', port=7935, frame=None)
+  4         a = 2
+  5  ->     b = 3
+  6         c = a + b
+  7
+  8     main()
+[EOF]
+(Pdb)

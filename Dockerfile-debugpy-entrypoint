@@ -1,0 +1,7 @@
+FROM python:3.12-slim-bookworm
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+COPY docker-entrypoint.sh /entrypoint
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5678 8000
+ENTRYPOINT ["/entrypoint"]

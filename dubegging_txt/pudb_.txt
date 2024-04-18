@@ -1,0 +1,4 @@
+python samples/pydb_example.py
+pudb:6899: Please start a telnet session using a command like:
+telnet 0.0.0.0 6899
+pudb:6899: Waiting for client...

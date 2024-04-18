@@ -10,6 +10,12 @@ make build-sample-app
 make run-sample-app
 ```
 
+### debugpy
+
+```
+docker build -f Dockerfile-debugpy -t asoldatenko/py-sample-app-debug .
+docker run 
+```
 
 ### PuDB
 
@@ -17,6 +23,8 @@ make run-sample-app
 docker build -t pudb-debug -f Dockerfile-pudb-debug .
 docker run pudb-debug -p 6899:6899
 ```
+
+podman run -p 6899:6899 pudb-debug
 
 open separate terminal: 
 ```bash
@@ -43,3 +51,15 @@ mindmap
       Pen and paper
       Mermaid
 ```
+
+
+
+## Add git-sha
+
+```
+docker build -f Dockerfile-debugpy-sha --build-arg GIT_HASH=${GIT_HASH::7} -t asoldatenko/py-sample-app-debug .
+docker run --rm asoldatenko/py-sample-app-debug env | grep GIT_HASH
+
+GIT_HASH=80907a7
+```
+

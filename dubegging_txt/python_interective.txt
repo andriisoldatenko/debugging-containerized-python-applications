@@ -1,0 +1,4 @@
+$ python -i cycle_length.py
+>>> cycle_length
+<functools._lru_cache_wrapper object at 0x104328bf0>
+>>>
